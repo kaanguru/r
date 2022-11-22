@@ -1,0 +1,44 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <main>
+    <canvas id="canvas" width="1280" height="800"></canvas>
+  </main>
+</Layout>
+
+<script is:inline src="https://unpkg.com/@rive-app/canvas@1.0.95"></script>
+<script>
+  canvas.width = window.innerWidth;
+  //   canvas.height = window.innerHeight;
+  // Fill the canvas, cropping Rive if necessary
+  const layout = new rive.Layout({
+    fit: rive.Fit.Cover,
+  });
+
+  // Fit to the width and align to the top of the canvas
+  /*     layout = new rive.Layout({
+        fit: rive.Fit.FitWidth,
+        alignment: rive.Alignment.BottomCenter,
+    }); */
+
+  // Constrain the Rive content to (minX, minY), (maxX, maxY) in the canvas
+  /*     layout = new rive.Layout({
+        fit: rive.Fit.Contain,
+        minX: 50,
+        minY: 50,
+        maxX: 100,
+        maxY: 100,
+    }); */
+
+  const r = new rive.Rive({
+    src: "https://cdn.rive.app/animations/vehicles.riv",
+    canvas: document.getElementById("canvas"),
+    layout: layout,
+    autoplay: true,
+  });
+
+  // Update the layout
+  r.layout = new rive.Layout({ fit: rive.Fit.Fill });
+</script>
