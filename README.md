@@ -1,5 +1,12 @@
 # Astro with Rive.app
 
-## Layout of Animations
+An implementation Web canvas JS runtime for Rive
+
+src\pages\index.astro
+
+[Astro Docs](https://docs.astro.build/en/getting-started/)
+
+## Docs to change Layout of Animations
 
 https://help.rive.app/runtimes/layout
+
